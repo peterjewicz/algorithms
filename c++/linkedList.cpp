@@ -15,6 +15,15 @@ int main()
     struct node{
         int data;
         node *nextNode;
+        
+        node *insertNode(node *currentNode, int val) //takes the current node pointer and value for new node
+        {
+            currentNode->nextNode = new node; //sets up and assigns pointer to new node
+            currentNode = currentNode->nextNode;
+            currentNode->nextNode = 0;
+            currentNode->data = val;
+            return currentNode; //returns a pointer to the current node
+        }
     };
     
     node *head; //points to the first node
@@ -35,7 +44,8 @@ int main()
     currentNode = currentNode->nextNode; // set current node equal to the new node created
     currentNode->nextNode = 0;
     currentNode->data = 30;
-    
+    currentNode = head->insertNode(currentNode, 11);
+    currentNode = head->insertNode(currentNode, 12);
     
     walkingNode = head; //walk through each node
     while(walkingNode !=0 ) //last node will have no pointer to new node
@@ -43,15 +53,7 @@ int main()
         std::cout << walkingNode->data << endl;
         walkingNode = walkingNode->nextNode; //advance to next node
     }
-    
-    
-    
-    
 
-    
-    
-   
-//    std::cout << head->data;
     return 0;
 }
 
