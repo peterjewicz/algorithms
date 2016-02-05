@@ -34,7 +34,6 @@ function compareTime($time, $currentTime) //calculates the difference between tw
 			else{$minute="";}
 	
 		$time = $days . $hours . $minutes . $seconds;
-		echo($time);
 		return $time;
 	}
 	?>
